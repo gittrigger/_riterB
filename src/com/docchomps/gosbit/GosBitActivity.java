@@ -5331,7 +5331,7 @@ public class GosBitActivity extends Activity {
 										pb[hx.getInt("tabfy_pc")]);
 								m0.setData(h6);
 								m0.what = h6.getInt("tabfy");
-								tabfy.sendMessageDelayed(m0, 5880);
+								tabfy.sendMessageDelayed(m0, 880);
 							}
 
 							// } else if
@@ -5430,7 +5430,7 @@ public class GosBitActivity extends Activity {
 							m0.setData(h8);
 							m0.what = hx.getInt("tabfy");
 							tabfy.removeMessages(m0.what);
-							tabfy.sendMessageDelayed(m0, 7880);
+							tabfy.sendMessageDelayed(m0, 880);
 
 						} else {
 							cmxb[hx.getInt("tabfy_pc", 0)].drawText("delayed",
@@ -6019,7 +6019,7 @@ public class GosBitActivity extends Activity {
 							"##                         ## AUTO FEED NEW RECORD   (2)    ########################### "
 									+ i + "/" + (pc - 1));
 					moveService.removeMessages(2);
-					moveService.sendEmptyMessageDelayed(2, 3880);
+					moveService.sendEmptyMessageDelayed(2, 880);
 				}
 
 				break;
@@ -6851,6 +6851,18 @@ public class GosBitActivity extends Activity {
 		}
 	};
 
+	Handler makeViewable = new Handler(){
+		public void handleMessage(Message mg){
+			Bundle bg = mg.getData();
+			int mhid = bg.getInt("hid",-1);
+			if(mhid != -1){
+				View tn = findViewById(mhid);
+				tn.setVisibility(View.VISIBLE);
+			}
+			
+		}
+	};
+	
 	Handler recordOn = new Handler() {
 		public void handleMessage(Message msg) {
 			// new ImageView
@@ -6887,11 +6899,18 @@ public class GosBitActivity extends Activity {
 				i8.setId(hid);
 				i8.setScaleType(ScaleType.FIT_CENTER);
 				i8.setImageResource(R.drawable.cloud);
+				i8.setVisibility(View.INVISIBLE);
 				// i8.setImageURI(Uri.fromFile(bu));
 				// fildash =
 				// OnClickL
 				sparkEasel.addView(i8);
-
+				
+{
+				Message mr = new Message();Bundle mb = new Bundle();
+				mb.putInt("hid",hid);mr.setData(mb);
+				makeViewable.sendMessageDelayed(mr, 250);
+}
+				
 				// "aheardlist"
 
 				// animportlist += Uri.fromFile(bu) + ",";
