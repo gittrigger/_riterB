@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_label">_riterB</string>
+    <string name="app_name">_riterB</string>
+    <string name="search_hint">_riterB Search</string>
+    <string name="setdesc">Documents</string>
+
+</resources>
