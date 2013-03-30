@@ -5840,7 +5840,14 @@ public class GosBitActivity extends Activity {
 					continue;
 				}
 				if (u0.getVisibility() == View.INVISIBLE) {
-					u0.setVisibility(View.VISIBLE);
+//					u0.setVisibility(View.VISIBLE);
+			
+{
+				Message mr = new Message();Bundle mb = new Bundle();
+				mb.putInt("hid",pb[i].getInt("tabfy"));mr.setData(mb);
+				makeViewable.sendMessageDelayed(mr, 780);
+}
+				
 					pbn.bringChildToFront(u0);
 				}
 
@@ -6856,7 +6863,7 @@ public class GosBitActivity extends Activity {
 			Bundle bg = mg.getData();
 			int mhid = bg.getInt("hid",-1);
 			if(mhid != -1){
-				View tn = findViewById(mhid);
+				ImageView tn = (ImageView) findViewById(mhid);
 				tn.setVisibility(View.VISIBLE);
 			}
 			
@@ -6908,7 +6915,7 @@ public class GosBitActivity extends Activity {
 {
 				Message mr = new Message();Bundle mb = new Bundle();
 				mb.putInt("hid",hid);mr.setData(mb);
-				makeViewable.sendMessageDelayed(mr, 250);
+				makeViewable.sendMessageDelayed(mr, 780);
 }
 				
 				// "aheardlist"
@@ -6933,7 +6940,7 @@ public class GosBitActivity extends Activity {
 					Message m9 = new Message();
 					m9.setData(hx);
 					m9.what = -1;
-					tabfy.sendMessageDelayed(m9, 1775);
+					tabfy.sendMessageDelayed(m9, 775);
 				}
 
 			}
